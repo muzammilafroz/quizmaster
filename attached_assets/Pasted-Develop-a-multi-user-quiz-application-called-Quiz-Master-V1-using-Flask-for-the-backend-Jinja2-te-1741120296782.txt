@@ -1,0 +1,107 @@
+Develop a multi-user quiz application called Quiz Master - V1 using Flask for the backend, Jinja2 templating, HTML, CSS, Bootstrap for the front end, and SQLite as the database. This application acts as an exam preparation site for multiple courses, with functionalities for admin and users.
+
+Frameworks & Technologies (Mandatory)
+Backend: Flask
+Frontend: Jinja2, HTML, CSS, Bootstrap
+Database: SQLite (No other database is allowed)
+Hosting: All functionalities must be demonstrated on a local machine
+Application Roles & Functionalities
+1. Admin Role (Quiz Master - Superuser)
+Predefined Account: No registration allowed, admin details must be pre-configured in the database.
+Admin Dashboard:
+Create, edit, delete subjects
+Create, edit, delete chapters under a subject
+Create, edit, delete quizzes under a chapter
+Add multiple-choice questions (MCQs) to quizzes (only one correct option per question)
+Manage users (search, view their attempts, and scores)
+Set quiz date & duration (HH:MM)
+View summary charts (visual representation of quiz performance)
+2. User Role
+Registration & Login: Users must sign up with:
+Email (used as username)
+Password
+Full Name
+Qualification
+Date of Birth
+User Dashboard:
+Browse subjects & chapters
+Attempt quizzes with a timer (optional)
+View previous quiz scores
+See summary charts of past attempts
+Database Schema (Must be implemented programmatically)
+The database should be created using models (manual creation using DB Browser for SQLite is NOT allowed).
+
+Tables & Fields:
+User Table:
+
+id (Primary Key)
+email (Unique)
+password
+full_name
+qualification
+dob
+Admin Table: (Only one predefined admin)
+
+id (Primary Key)
+username
+password
+Subjects Table:
+
+id (Primary Key)
+name
+description
+Chapters Table:
+
+id (Primary Key)
+subject_id (Foreign Key)
+name
+description
+Quiz Table:
+
+id (Primary Key)
+chapter_id (Foreign Key)
+date_of_quiz
+time_duration
+remarks
+Questions Table:
+
+id (Primary Key)
+quiz_id (Foreign Key)
+question_statement
+option_1, option_2, option_3, option_4
+correct_option
+Scores Table:
+
+id (Primary Key)
+quiz_id (Foreign Key)
+user_id (Foreign Key)
+time_stamp_of_attempt
+total_scored
+Core Functionalities
+✅ Authentication & User Management:
+
+Implement admin login (predefined) and user login/registration
+Use either a Flask authentication framework (e.g., flask_login) or a simple username-password form
+✅ Admin Panel Functionalities:
+
+Create, update, delete Subjects, Chapters, Quizzes, and Questions
+Search users, quizzes, and subjects
+Set quiz schedule (date & time duration)
+View quiz analytics & summary charts
+✅ User Functionalities:
+
+Choose a subject and chapter
+Start and complete timed quizzes (optional)
+View past quiz attempts and scores
+✅ Database Initialization & Programmatic Table Creation
+
+The database must be created using Flask models
+No manual DB creation is allowed
+Recommended Features
+REST APIs: Create API resources for fetching subjects, chapters, and quizzes using Flask-RESTful
+Charts & Analytics: Use Chart.js or any external library for quiz analytics
+Form Validation: Implement both frontend (HTML5, JavaScript) and backend (Flask) validation
+Optional Features
+Advanced Styling: Use Bootstrap for a more polished UI
+Enhanced Security: Use flask_login for session management
+Additional Features: Any other relevant features to improve usability
